@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "LNS030R+vXMQSEIf5cRgorW4exZ1kxR2VLBsM/m/FYw=",
+  "Source": "VolunteerPortalApi",
+  "BasePath": "_content/VolunteerPortalApi",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
