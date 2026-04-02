@@ -16,7 +16,7 @@ namespace UMISModuleApi.Entities
         public int cityID { get; set; }
         public int countryID { get; set; }
         //public string fatherName { get; set; }
-        public string physicallyFit { get; set; }
+        public int physicallyFit { get; set; }
         public string contactNo { get; set; }
         public string address { get; set; }
         // public string eResume { get; set; }
