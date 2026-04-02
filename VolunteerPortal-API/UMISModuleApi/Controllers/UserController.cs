@@ -427,20 +427,20 @@ namespace UMISModuleAPI.Controllers
         {
             try
             {
-                model.eDocPath = "C:\\inetpub\\wwwroot\\YouthPortal\\YouthPortal-app\\browser\\assets\\Applicant-images\\Applicant-Profile";
+                //model.eDocPath = "C:\\inetpub\\wwwroot\\VolunteerPortal\\VolunteerPortal-app\\browser\\assets\\Applicant-images\\Applicant-Profile";
                 var response = dapperQuery.SPReturn("sp_saveUser", model, _dbCon);
                 var data = response.Select(row => new { res = row.ToString() });
                 bool result = data.First().res.Contains("Success");
 
-                if (result == true && (string.IsNullOrEmpty(model.eDocPath) && string.IsNullOrEmpty(model.eDocPath) && string.IsNullOrEmpty(model.eDocPath)))
-                {
-                    var userID = data.First().res.Split("|||")[1];
-                    dapperQuery.saveImageFile(
-                        model.eDocPath,
-                        userID,
-                        model.eDoc,
-                        model.eDocExt);
-                }
+                // if (result == true && (string.IsNullOrEmpty(model.eDocPath) && string.IsNullOrEmpty(model.eDocPath) && string.IsNullOrEmpty(model.eDocPath)))
+                // {
+                //     var userID = data.First().res.Split("|||")[1];
+                //     dapperQuery.saveImageFile(
+                //         model.eDocPath,
+                //         userID,
+                //         model.eDoc,
+                //         model.eDocExt);
+                // }
                 return Ok(response);
             }
             catch (Exception e)
