@@ -25,7 +25,7 @@ public class TrainerController : ControllerBase
     {
         try
         {
-            cmd = "select cityID,cityName,countryID from tbl_city where isdeleted=0";
+            cmd = "select cityID,cityName,provinceID from tbl_city where isdeleted=0";
             var response = dapperQuery.Qry<GetCity>(cmd, _dbCon);
             return Ok(response);
         }
