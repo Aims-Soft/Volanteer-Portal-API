@@ -47,13 +47,13 @@ public class DashboardController : ControllerBase
             return BadRequest(e.Message);
         }
     }
-    [HttpGet("getTopCitiesApplicants")]
-    public IActionResult getTopCitiesApplicants(int year, int month)
+    [HttpGet("getCrisesByPriorty")]
+    public IActionResult getCrisesByPriorty()
     {
         try
         {
-            cmd = "Select * from fun_TopCitiesApplicants ("+year+", "+month+") order by TotalApplicants desc";
-            var response = dapperQuery.Qry<TopCitiesApplicants>(cmd, _dbCon);
+            cmd = "Select * from view_crisesByPriorty";
+            var response = dapperQuery.Qry<CrisesByPriorty>(cmd, _dbCon);
             return Ok(response);
         }
         catch (Exception e)

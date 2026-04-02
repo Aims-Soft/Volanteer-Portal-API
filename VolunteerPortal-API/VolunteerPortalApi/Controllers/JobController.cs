@@ -66,7 +66,7 @@ public class JobController : ControllerBase
     {
         try
         {
-            cmd = "select * from tbl_experience where isdeleted=0";
+            cmd = "select * from tbl_experience";
             var response = dapperQuery.Qry<Experience>(cmd, _dbCon);
             return Ok(response);
         }
