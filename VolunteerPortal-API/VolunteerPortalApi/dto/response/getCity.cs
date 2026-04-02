@@ -9,7 +9,7 @@ namespace VolunteerPortalApi.Entities
     public class GetCity
     {
         public int cityID { get; set; }
-        public int countryID { get; set; }
+        public int provinceID { get; set; }
         public string cityName { get; set; }
     }
 }
