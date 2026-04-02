@@ -24,9 +24,11 @@ namespace UMISModuleApi.Entities
         // public string eResumeExt { get; set; }
         // public string eDoc { get; set; }
         // public string eDocPath { get; set; }
-        // public string eDocExt { get; set; }
+        public string json { get; set; }
         public int roleID { get; set; }
         public int userTypeID { get; set; }
+        public int degreeID { get; set; }
+        public int experienceID { get; set; }
         public string spType { get; set; }
     }
 }
