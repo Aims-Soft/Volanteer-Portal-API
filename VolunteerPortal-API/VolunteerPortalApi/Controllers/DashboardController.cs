@@ -33,13 +33,13 @@ public class DashboardController : ControllerBase
             return BadRequest(e.Message);
         }
     }
-    [HttpGet("getOnGoingSessions")]
-    public IActionResult getOnGoingSessions()
+    [HttpGet("getVolunteerByDomain")]
+    public IActionResult getVolunteerByDomain()
     {
         try
         {
-            cmd = "select distinct * from view_onGoningSessions";
-            var response = dapperQuery.Qry<OnGoingSession>(cmd, _dbCon);
+            cmd = "select distinct * from view_volunteerByDomain";
+            var response = dapperQuery.Qry<VolunteerByDomain>(cmd, _dbCon);
             return Ok(response);
         }
         catch (Exception e)

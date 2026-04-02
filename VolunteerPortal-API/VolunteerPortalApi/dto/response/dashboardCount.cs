@@ -8,11 +8,9 @@ namespace VolunteerPortalApi.Entities
 {
     public class DashboardCount
     {
-        public int Education { get; set; }
-        public int Politics { get; set; }
-        public int TotalSessions { get; set; }
-        public int  Business { get; set; }
-        public int Job { get; set; }
-        public int  NewUser { get; set; }
+        public int TotalVolunteers { get; set; }
+        public int TotalIncidents { get; set; }
+        public int ActiveIncidents { get; set; }
+        public int  ActiveVolunteers { get; set; }
     }
 }
