@@ -160,13 +160,13 @@ public class AdminController : ControllerBase
             return BadRequest(e.Message);
         }
     }
-    [HttpGet("getSessionType")]
-    public IActionResult getSessionType()
+    [HttpGet("getConfigration")]
+    public IActionResult getConfigration()
     {
         try
         {
-            cmd = "select sessionTypeID,sessionTypeName from tbl_session_Type where isdeleted=0";
-            var response = dapperQuery.Qry<SessionType>(cmd, _dbCon);
+            cmd = "select * from view_getConfigration";
+            var response = dapperQuery.Qry<GetConfigration>(cmd, _dbCon);
             return Ok(response);
         }
         catch (Exception e)
