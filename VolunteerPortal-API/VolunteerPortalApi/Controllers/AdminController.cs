@@ -207,7 +207,7 @@ public class AdminController : ControllerBase
     {
         try
         {
-            cmd = "select distinct * from view_getCategoryDomain where '"+categoryID+"'";
+            cmd = "select distinct * from view_getCategoryDomain where categoryID='"+categoryID+"'";
             var response = dapperQuery.Qry<CategoryDoamin>(cmd, _dbCon);
             return Ok(response);
         }
