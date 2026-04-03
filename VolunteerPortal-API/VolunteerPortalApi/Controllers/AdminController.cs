@@ -174,6 +174,20 @@ public class AdminController : ControllerBase
             return BadRequest(e.Message);
         }
     }
+    [HttpGet("getPriority")]
+    public IActionResult getPriority()
+    {
+        try
+        {
+            cmd = "select priortyTypeID,priortyTypeTitle from tbl_priorty_Type";
+            var response = dapperQuery.Qry<GetPriorty>(cmd, _dbCon);
+            return Ok(response);
+        }
+        catch (Exception e)
+        {
+            return BadRequest(e.Message);
+        }
+    }
     [HttpGet("getIncidents")]
     public IActionResult getIncidents()
     {
