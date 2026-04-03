@@ -75,20 +75,20 @@ public class JobController : ControllerBase
             return BadRequest(e.Message);
         }
     }
-    [HttpGet("getBenefit")]
-    public IActionResult getBenefit()
-    {
-        try
-        {
-            cmd = "select * from tbl_Benefit where isDeleted=0";
-            var response = dapperQuery.Qry<Benefit>(cmd, _dbCon);
-            return Ok(response);
-        }
-        catch (Exception e)
-        {
-            return BadRequest(e.Message);
-        }
-    }
+    // [HttpGet("getBenefit")]
+    // public IActionResult getBenefit()
+    // {
+    //     try
+    //     {
+    //         cmd = "select * from tbl_Benefit where isDeleted=0";
+    //         var response = dapperQuery.Qry<Benefit>(cmd, _dbCon);
+    //         return Ok(response);
+    //     }
+    //     catch (Exception e)
+    //     {
+    //         return BadRequest(e.Message);
+    //     }
+    // }
     [HttpGet("getSkills")]
     public IActionResult getSkills()
     {
