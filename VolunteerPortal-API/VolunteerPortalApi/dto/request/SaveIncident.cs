@@ -19,6 +19,7 @@ namespace VolunteerPortalApi.Entities
         public string eDocPath { get; set; }
         public string eDocExt { get; set; }
         public int userID { get; set; }
+        public string json {get; set;}
         public string spType { get; set; }
     }
 }
