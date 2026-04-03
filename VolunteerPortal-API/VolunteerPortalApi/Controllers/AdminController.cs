@@ -297,12 +297,12 @@ public class AdminController : ControllerBase
                 return BadRequest(e.Message);
             }
         }
-    [HttpPost("saveTrainerByAdmin")]
-    public IActionResult saveTrainerByAdmin(TrainerByAdmin model)
+    [HttpPost("updateStatus")]
+    public IActionResult updateStatus(StatusUpdate model)
     {
         try
         {
-            var response = dapperQuery.SPReturn("sp_saveTrainerByAdmin", model, _dbCon);
+            var response = dapperQuery.SPReturn("sp_UpdateStatus", model, _dbCon);
             return Ok(response);
         }
         catch (Exception e)
