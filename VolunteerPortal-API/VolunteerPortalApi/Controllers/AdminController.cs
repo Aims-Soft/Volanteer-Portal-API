@@ -174,20 +174,20 @@ public class AdminController : ControllerBase
             return BadRequest(e.Message);
         }
     }
-    // [HttpGet("getAllSession")]
-    // public IActionResult getAllSession()
-    // {
-    //     try
-    //     {
-    //         cmd = "select distinct * from view_getAllSessions order by createdOn desc";
-    //         var response = dapperQuery.Qry<AllSessions>(cmd, _dbCon);
-    //         return Ok(response);
-    //     }
-    //     catch (Exception e)
-    //     {
-    //         return BadRequest(e.Message);
-    //     }
-    // }
+    [HttpGet("getIncidents")]
+    public IActionResult getIncidents()
+    {
+        try
+        {
+            cmd = "select distinct * from view_getIncidents order by createdOn desc";
+            var response = dapperQuery.Qry<GetAllIncidents>(cmd, _dbCon);
+            return Ok(response);
+        }
+        catch (Exception e)
+        {
+            return BadRequest(e.Message);
+        }
+    }
     [HttpGet("getCategory")]
     public IActionResult getCategory()
     {
