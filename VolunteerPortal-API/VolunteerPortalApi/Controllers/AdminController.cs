@@ -228,19 +228,47 @@ public class AdminController : ControllerBase
             return Ok(e.Message);
         }
     }
-    [HttpPost("updateSessionStatus")]
-    public IActionResult updateSessionStatus(SessionStatus model)
-    {
-        try
+    // [HttpPost("saveIncident")]
+    // public IActionResult saveIncident(SaveIncident model)
+    // {
+    //     try
+    //     {
+    //         var response = dapperQuery.SPReturn("sp_saveIncident", model, _dbCon);
+    //         return Ok(response);
+    //     }
+    //     catch (Exception e)
+    //     {
+    //         return Ok(e.Message);
+    //     }
+    // }
+    [HttpPost("saveIncident")]
+        public IActionResult saveIncident(SaveIncident model)
         {
-            var response = dapperQuery.SPReturn("sp_updateSessionStatus", model, _dbCon);
-            return Ok(response);
+            try
+            {
+                 model.eDocPath = "C:\\inetpub\\wwwroot\\YouthPortal\\YouthPortal-app\\browser\\assets\\Incident-images\\Incidents";
+                var response = dapperQuery.SPReturn("sp_saveIncident", model, _dbCon);
+                var data = response.Select(row => new { res = row.ToString() });
+                bool result = data.First().res.Contains("Success");
+               // var response = dapperQuery.SPReturn("sp_saveUserAcadmicInfo",model,_dbCon);
+               
+                if (result == true && (string.IsNullOrEmpty(model.eDocPath) && string.IsNullOrEmpty(model.eDocPath) && string.IsNullOrEmpty(model.eDocPath)))
+                {
+                    var userID = data.First().res.Split("|||")[1];
+                    dapperQuery.saveImageFile(
+                        model.eDocPath,
+                        userID,
+                        model.eDoc,
+                        model.eDocExt);
+                }
+                return Ok(response);
+
+            }
+            catch(Exception e)
+            {
+                return BadRequest(e);
+            }
         }
-        catch (Exception e)
-        {
-            return Ok(e.Message);
-        }
-    }
     [HttpPost("saveTrainerByAdmin")]
     public IActionResult saveTrainerByAdmin(TrainerByAdmin model)
     {
