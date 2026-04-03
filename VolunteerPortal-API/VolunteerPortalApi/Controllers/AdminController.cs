@@ -243,6 +243,19 @@ public class AdminController : ControllerBase
             return Ok(e.Message);
         }
     }
+    [HttpPost("saveSkill")]
+    public IActionResult saveSkill(SaveSkill model)
+    {
+        try
+        {
+            var response = dapperQuery.SPReturn("sp_saveCategoryDomain", model, _dbCon);
+            return Ok(response);
+        }
+        catch (Exception e)
+        {
+            return Ok(e.Message);
+        }
+    }
     [HttpPost("saveConfigration")]
     public IActionResult saveConfigration(SaveConfigration model)
     {
