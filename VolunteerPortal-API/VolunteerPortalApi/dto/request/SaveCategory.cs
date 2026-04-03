@@ -5,10 +5,11 @@ using System.Threading.Tasks;
 
 namespace VolunteerPortalApi.Entities
 {
-    public class LoginStatus
+    public class SaveCategory
     {
+        public int categoryID { get; set; }
+        public string categoryTitle { get; set; }
         public int userID { get; set; }
-        public string loginStatus { get; set; }
         public string spType { get; set; }
     }
 }

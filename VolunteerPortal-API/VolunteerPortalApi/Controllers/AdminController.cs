@@ -202,12 +202,25 @@ public class AdminController : ControllerBase
             return BadRequest(e.Message);
         }
     }
-    [HttpPost("updateUserStatus")]
-    public IActionResult updateUserStatus(LoginStatus model)
+    [HttpPost("saveCategory")]
+    public IActionResult saveCategory(SaveCategory model)
     {
         try
         {
-            var response = dapperQuery.SPReturn("sp_updateUserStatus", model, _dbCon);
+            var response = dapperQuery.SPReturn("sp_saveCategory", model, _dbCon);
+            return Ok(response);
+        }
+        catch (Exception e)
+        {
+            return Ok(e.Message);
+        }
+    }
+    [HttpPost("saveConfigration")]
+    public IActionResult saveConfigration(SaveConfigration model)
+    {
+        try
+        {
+            var response = dapperQuery.SPReturn("sp_saveConfigration", model, _dbCon);
             return Ok(response);
         }
         catch (Exception e)

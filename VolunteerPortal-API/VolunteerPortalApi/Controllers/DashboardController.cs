@@ -61,6 +61,34 @@ public class DashboardController : ControllerBase
             return BadRequest(e.Message);
         }
     }
+    [HttpGet("getRecentRegistration")]
+    public IActionResult getRecentRegistration()
+    {
+        try
+        {
+            cmd = "Select * from view_user_Registration";
+            var response = dapperQuery.Qry<UserRegistration>(cmd, _dbCon);
+            return Ok(response);
+        }
+        catch (Exception e)
+        {
+            return BadRequest(e.Message);
+        }
+    }
+    [HttpGet("getRecentCrises")]
+    public IActionResult getRecentCrises()
+    {
+        try
+        {
+            cmd = "Select * from view_recent_Crises";
+            var response = dapperQuery.Qry<RecentCrises>(cmd, _dbCon);
+            return Ok(response);
+        }
+        catch (Exception e)
+        {
+            return BadRequest(e.Message);
+        }
+    }
     [HttpGet("getActiveJob")]
     public IActionResult getActiveJob(int companyID)
     {
