@@ -188,13 +188,13 @@ public class AdminController : ControllerBase
             return BadRequest(e.Message);
         }
     }
-    [HttpGet("getComingSession")]
-    public IActionResult getComingSession()
+    [HttpGet("getCategory")]
+    public IActionResult getCategory()
     {
         try
         {
-            cmd = "select distinct  * from view_getComingSessions where date > GETDATE()";
-            var response = dapperQuery.Qry<AllSessions>(cmd, _dbCon);
+            cmd = "select categoryID,categoryTitle from tbl_category where isdeleted=0";
+            var response = dapperQuery.Qry<Category>(cmd, _dbCon);
             return Ok(response);
         }
         catch (Exception e)
