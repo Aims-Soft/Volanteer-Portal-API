@@ -14,7 +14,7 @@ namespace VolunteerPortalApi.Entities
         public string location { get; set; }
         public string date { get; set; }
         public int cityID { get; set; }
-        public int priortyID { get; set; }
+        public int priortyTypeID { get; set; }
         public string eDoc { get; set; }
         public string eDocPath { get; set; }
         public string eDocExt { get; set; }

@@ -202,6 +202,20 @@ public class AdminController : ControllerBase
             return BadRequest(e.Message);
         }
     }
+    [HttpGet("getCategoryDomain")]
+    public IActionResult getCategoryDomain(int categoryID)
+    {
+        try
+        {
+            cmd = "select distinct * from view_getCategoryDomain where '"+categoryID+"'";
+            var response = dapperQuery.Qry<CategoryDoamin>(cmd, _dbCon);
+            return Ok(response);
+        }
+        catch (Exception e)
+        {
+            return BadRequest(e.Message);
+        }
+    }
     [HttpPost("saveCategory")]
     public IActionResult saveCategory(SaveCategory model)
     {
