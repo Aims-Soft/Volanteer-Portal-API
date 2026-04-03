@@ -274,7 +274,7 @@ public class AdminController : ControllerBase
         {
             try
             {
-                 model.eDocPath = "C:\\inetpub\\wwwroot\\YouthPortal\\YouthPortal-app\\browser\\assets\\Incident-images\\Incidents";
+                 model.eDocPath = "C:\\inetpub\\wwwroot\\VolunteerPortal\\VolunteerPortal-app\\browser\\assets\\Incident-images\\Incidents";
                 var response = dapperQuery.SPReturn("sp_saveIncident", model, _dbCon);
                 var data = response.Select(row => new { res = row.ToString() });
                 bool result = data.First().res.Contains("Success");
