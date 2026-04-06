@@ -8,8 +8,8 @@ namespace VolunteerPortalApi.Entities
 {
     public class CrisesByPriorty
     {
-        public string CriticalPriorty { get; set; }
-        public string MediumPriorty { get; set; }
-        public string LowPriorty { get; set; }
+        public bool CriticalPriorty { get; set; }
+        public bool MediumPriorty { get; set; }
+        public bool LowPriorty { get; set; }
    }
 }
