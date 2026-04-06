@@ -230,6 +230,20 @@ public class AdminController : ControllerBase
             return BadRequest(e.Message);
         }
     }
+    [HttpGet("getSkills")]
+    public IActionResult getSkills()
+    {
+        try
+        {
+            cmd = "select distinct * from view_getSkills";
+            var response = dapperQuery.Qry<GetSkills>(cmd, _dbCon);
+            return Ok(response);
+        }
+        catch (Exception e)
+        {
+            return BadRequest(e.Message);
+        }
+    }
     [HttpPost("saveCategory")]
     public IActionResult saveCategory(SaveCategory model)
     {
