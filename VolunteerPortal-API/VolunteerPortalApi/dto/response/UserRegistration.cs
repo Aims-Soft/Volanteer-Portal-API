@@ -19,6 +19,8 @@ namespace VolunteerPortalApi.Entities
         public string cityName { get; set; }
         public int provinceID { get; set; }
         public string provinceName { get; set; }
+        public int categoryID { get; set; }
+        public string categoryTitle { get; set; }
         public string domains { get; set; }
     }
 }
