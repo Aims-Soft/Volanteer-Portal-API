@@ -262,7 +262,7 @@ public class AdminController : ControllerBase
     {
         try
         {
-            var response = dapperQuery.SPReturn("sp_saveCategoryDomain", model, _dbCon);
+            var response = dapperQuery.SPReturn("sp_saveSkills", model, _dbCon);
             return Ok(response);
         }
         catch (Exception e)

@@ -8,8 +8,7 @@ namespace VolunteerPortalApi.Entities
     public class SaveSkill
     {
         public int categoryID { get; set; }
-        public int domainID { get; set; }
-        public string domainTitle { get; set; }
+        public string Json { get; set; }
         public int userID { get; set; }
         public string spType { get; set; }
     }
