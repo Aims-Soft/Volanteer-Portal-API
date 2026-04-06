@@ -423,11 +423,11 @@ namespace UMISModuleAPI.Controllers
             }
         }
         [HttpGet("getuser")]
-        public IActionResult getuser()
+        public IActionResult getuser(string email)
         {
             try
             {
-                cmd = "Select * from view_user_Registration";
+                cmd = "Select * from view_user_Registration where email='"+email+"'";
                 var response = dapperQuery.Qry<UserRegistration>(cmd, _dbCon);
                 return Ok(response);
             }
