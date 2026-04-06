@@ -422,6 +422,20 @@ namespace UMISModuleAPI.Controllers
                 return Ok(e.Message);
             }
         }
+        [HttpGet("getuser")]
+        public IActionResult getuser()
+        {
+            try
+            {
+                cmd = "Select * from view_user_Registration";
+                var response = dapperQuery.Qry<UserRegistration>(cmd, _dbCon);
+                return Ok(response);
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e.Message);
+            }
+        }
         [HttpPost("saveWebUser")]
         public IActionResult saveWebUser(MobileUserCreation model)
         {

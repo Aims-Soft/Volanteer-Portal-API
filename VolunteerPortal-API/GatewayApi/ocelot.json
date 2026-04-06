@@ -141,6 +141,17 @@
       "UpstreamPathTemplate": "/auth-api/generateToken"
     },
     {
+      "DownstreamPathTemplate": "/User/getuser",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": "9092"
+        }
+      ],
+      "UpstreamPathTemplate": "/auth-api/userVerification"
+    },
+    {
       "DownstreamPathTemplate": "/{catchAll}",
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
