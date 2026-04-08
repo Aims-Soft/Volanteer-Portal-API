@@ -61,6 +61,20 @@ public class DashboardController : ControllerBase
             return BadRequest(e.Message);
         }
     }
+    [HttpGet("getProvinceCount")]
+    public IActionResult getProvinceCount()
+    {
+        try
+        {
+            cmd = "Select * from view_provinceCount";
+            var response = dapperQuery.Qry<ProcinceName>(cmd, _dbCon);
+            return Ok(response);
+        }
+        catch (Exception e)
+        {
+            return BadRequest(e.Message);
+        }
+    }
     [HttpGet("getRecentRegistration")]
     public IActionResult getRecentRegistration()
     {
