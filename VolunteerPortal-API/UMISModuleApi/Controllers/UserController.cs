@@ -427,7 +427,7 @@ namespace UMISModuleAPI.Controllers
         {
             try
             {
-                cmd = "Select * from view_user_Registration where email='"+email+"'";
+                cmd = "Select * from view_getUserInfo where email='"+email+"'";
                 var response = dapperQuery.Qry<UserRegistration>(cmd, _dbCon);
                 return Ok(response);
             }
