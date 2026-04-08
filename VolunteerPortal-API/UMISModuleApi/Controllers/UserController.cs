@@ -544,14 +544,30 @@ namespace UMISModuleAPI.Controllers
             var newUserID = 0;
             List<userDetail> appMenuUserEmail = new List<userDetail>();
             cmd3 = "select TOP 1 userID from tbl_user where email = '" + obj.email + "' ";
-            appMenuUserEmail = (List<userDetail>)dapperQuery.Qry<userDetail>(cmd3, _dbCon);
+             appMenuUserEmail = (List<userDetail>)dapperQuery.Qry<userDetail>(cmd3, _dbCon);
+
+            // if (appMenuUserEmail.Count >= 0)
+            // {
+            //     newUserID = appMenuUserEmail[0].userID;
+            // }
+            //appMenuUserEmail = (List<userDetail>)dapperQuery.Qry<userDetail>(cmd3, new { Email = obj.email }, _dbCon);
 
             if (appMenuUserEmail.Count > 0)
             {
                 newUserID = appMenuUserEmail[0].userID;
+
+                // ✅ Existing user → OTP send
+                response = "Existing User - OTP Sent";
+            }
+            else
+            {
+                // ❗ New user → still OTP send
+                newUserID = 0; // ya temp ID
+
+                response = "New User - OTP Sent";
             }
 
-            if (newUserID > 0)
+            if (newUserID >= 0)
             {
             
                 List<OTP> appMenuUserID = new List<OTP>();
@@ -614,7 +630,7 @@ namespace UMISModuleAPI.Controllers
                 return BadRequest(e.Message);
             }   
         }
-
+        
         [HttpPost("forgetPassword")]
         public IActionResult forgetPassword(UpdatePassword model)
         {
@@ -628,7 +644,6 @@ namespace UMISModuleAPI.Controllers
             {
                 return Ok(e.Message);
             }
-
         }
 
         [HttpPost("saveUserBranch")]
@@ -641,6 +656,20 @@ namespace UMISModuleAPI.Controllers
                 return Ok(response);
             }
             catch(Exception e)
+            {
+                return Ok(e.Message);
+            }
+        }
+        [HttpPost("saveApplicantUser")]
+        public IActionResult saveApplicantUser(SaveApplicantUser model)
+        {
+            try
+            {
+                var response = dapperQuery.SPReturn("sp_saveApplicantUser",model,_dbCon);
+                return Ok(response);
+
+            }
+            catch (Exception e)
             {
                 return Ok(e.Message);
             }
