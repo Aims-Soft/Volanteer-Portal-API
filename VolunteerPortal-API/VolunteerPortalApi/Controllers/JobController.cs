@@ -61,20 +61,6 @@ public class JobController : ControllerBase
             return BadRequest(e.Message);
         }
     }
-    [HttpGet("getExperience")]
-    public IActionResult getExperience()
-    {
-        try
-        {
-            cmd = "select * from tbl_experience";
-            var response = dapperQuery.Qry<Experience>(cmd, _dbCon);
-            return Ok(response);
-        }
-        catch (Exception e)
-        {
-            return BadRequest(e.Message);
-        }
-    }
     // [HttpGet("getBenefit")]
     // public IActionResult getBenefit()
     // {

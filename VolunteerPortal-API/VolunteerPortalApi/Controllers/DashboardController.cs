@@ -80,7 +80,7 @@ public class DashboardController : ControllerBase
     {
         try
         {
-            cmd = "Select * from view_user_Registration";
+            cmd = "Select * from view_user_Registration order by createdon desc";
             var response = dapperQuery.Qry<UserRegistration>(cmd, _dbCon);
             return Ok(response);
         }
