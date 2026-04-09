@@ -103,25 +103,46 @@ public class DashboardController : ControllerBase
             return BadRequest(e.Message);
         }
     }
-    //[HttpGet("getActiveJob")]
-    // public IActionResult getActiveJob(int companyID)
-    // {
-    //     try
-    //     {
-    //         if (companyID == null || companyID == 0)
-    //         {
-    //             cmd = "select * from view_ActiveJobs order by jobID desc";
-    //         }
-    //         else
-    //         {
-    //             cmd = "select * from view_ActiveJobs where companyID=" + companyID + " order by jobID desc";
-    //         }
-    //         var response = dapperQuery.Qry<ActiveJob>(cmd, _dbCon);
-    //         return Ok(response);
-    //     }
-    //     catch (Exception e)
-    //     {
-    //         return BadRequest(e.Message);
-    //     }
-    // }
+    [HttpGet("getDashboardVolunteer")]
+    public IActionResult getDashboardVolunteer(int ActiveStatus)
+    {
+        try
+        {
+            if (ActiveStatus == null || ActiveStatus == 0)
+            {
+                cmd = "select * from view_getDashboardVolunteer";
+            }
+            else
+            {
+                cmd = "select * from view_getDashboardVolunteer where loginstatus=" + ActiveStatus + "";
+            }
+            var response = dapperQuery.Qry<DashboardVolunteer>(cmd, _dbCon);
+            return Ok(response);
+        }
+        catch (Exception e)
+        {
+            return BadRequest(e.Message);
+        }
+    }
+    [HttpGet("getDashboardIncidents")]
+    public IActionResult getDashboardIncidents(int ActiveStatus)
+    {
+        try
+        {
+            if (ActiveStatus == null || ActiveStatus == 0)
+            {
+                cmd = "select * from view_getDashboardIncident";
+            }
+            else
+            {
+                cmd = "select * from view_getDashboardIncident where status=" + ActiveStatus + "";
+            }
+            var response = dapperQuery.Qry<DashboardIncidents>(cmd, _dbCon);
+            return Ok(response);
+        }
+        catch (Exception e)
+        {
+            return BadRequest(e.Message);
+        }
+    }
 }
