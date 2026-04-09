@@ -55,27 +55,27 @@ public class AdminController : ControllerBase
             return BadRequest(e.Message);
         }
     }
-    [HttpGet("AllJobs")]
-    public IActionResult AllJobs(int companyID)
-    {
-        try
-        {
-            if (companyID == null || companyID == 0)
-            {
-                cmd = "select distinct * from view_alljobs";
-            }
-            else
-            {
-                cmd = "select distinct * from view_alljobs where companyID="+companyID+"";
-            }
-            var response = dapperQuery.Qry<AllJobs>(cmd, _dbCon);
-            return Ok(response);
-        }
-        catch (Exception e)
-        {
-            return BadRequest(e.Message);
-        }
-    }
+    // [HttpGet("AllJobs")]
+    // public IActionResult AllJobs(int companyID)
+    // {
+    //     try
+    //     {
+    //         if (companyID == null || companyID == 0)
+    //         {
+    //             cmd = "select distinct * from view_alljobs";
+    //         }
+    //         else
+    //         {
+    //             cmd = "select distinct * from view_alljobs where companyID="+companyID+"";
+    //         }
+    //         var response = dapperQuery.Qry<AllJobs>(cmd, _dbCon);
+    //         return Ok(response);
+    //     }
+    //     catch (Exception e)
+    //     {
+    //         return BadRequest(e.Message);
+    //     }
+    // }
     [HttpGet("getCompanyDetail")]
     public IActionResult getCompanyDetail()
     {
