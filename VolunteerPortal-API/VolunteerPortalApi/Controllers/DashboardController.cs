@@ -104,7 +104,7 @@ public class DashboardController : ControllerBase
         }
     }
     [HttpGet("getDashboardVolunteer")]
-    public IActionResult getDashboardVolunteer(string ActiveStatus)
+    public IActionResult getDashboardVolunteer(string? ActiveStatus)
     {
         try
         {
@@ -127,7 +127,7 @@ public class DashboardController : ControllerBase
         }
     }
     [HttpGet("getDashboardIncidents")]
-    public IActionResult getDashboardIncidents(int ActiveStatus)
+    public IActionResult getDashboardIncidents(int? ActiveStatus)
     {
         try
         {
