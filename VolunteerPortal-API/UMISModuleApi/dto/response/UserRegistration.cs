@@ -26,5 +26,6 @@ namespace UMISModuleApi.Entities
         public string degreeName { get; set; }
         public int experienceID { get; set; }
         public string experienceTitle { get; set; }
+        public string domains { get; set; } 
     }
 }
