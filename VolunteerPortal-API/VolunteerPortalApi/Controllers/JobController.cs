@@ -33,13 +33,13 @@ public class JobController : ControllerBase
             return BadRequest(e.Message);
         }
     }
-    [HttpGet("getJobType")]
-    public IActionResult getJobType()
+    [HttpGet("getExperience")]
+    public IActionResult getExperience()
     {
         try
         {
-            cmd = "select * from tbl_jobType";
-            var response = dapperQuery.Qry<JobType>(cmd, _dbCon);
+            cmd = "select experienceID,experienceTitle from tbl_experience";
+            var response = dapperQuery.Qry<Experience>(cmd, _dbCon);
             return Ok(response);
         }
         catch (Exception e)

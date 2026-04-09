@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace VolunteerPortalApi.Entities
 {
-    public class JobType
+    public class Experience
     {
-        public int jobTypeID { get; set; }
-        public string jobTypeTitle { get; set; }
+        public int experienceID { get; set; }
+        public string experienceTitle { get; set; }
     }
 }
