@@ -104,17 +104,17 @@ public class DashboardController : ControllerBase
         }
     }
     [HttpGet("getDashboardVolunteer")]
-    public IActionResult getDashboardVolunteer(int ActiveStatus)
+    public IActionResult getDashboardVolunteer(string ActiveStatus)
     {
         try
         {
-            if (ActiveStatus == null || ActiveStatus == 0)
+            if (ActiveStatus == null || ActiveStatus == "")
             {
                 cmd = "select * from view_getDashboardVolunteer";
             }
             else
             {
-                cmd = "select * from view_getDashboardVolunteer where loginstatus=" + ActiveStatus + "";
+                cmd = "select * from view_getDashboardVolunteer where loginstatus='" + ActiveStatus + "'";
             }
             var response = dapperQuery.Qry<DashboardVolunteer>(cmd, _dbCon);
             return Ok(response);
