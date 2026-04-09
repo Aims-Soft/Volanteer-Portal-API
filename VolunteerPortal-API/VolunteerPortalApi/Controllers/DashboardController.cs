@@ -108,16 +108,18 @@ public class DashboardController : ControllerBase
     {
         try
         {
-            if (ActiveStatus == null || ActiveStatus == "")
+         if (string.IsNullOrEmpty(ActiveStatus))
             {
-                cmd = "select * from view_getDashboardVolunteer";
+                cmd = "SELECT * FROM view_getDashboardVolunteer";
+                var response = dapperQuery.Qry<DashboardVolunteer>(cmd, _dbCon);
+                return Ok(response);
             }
             else
             {
-                cmd = "select * from view_getDashboardVolunteer where loginstatus='" + ActiveStatus + "'";
+                cmd = "SELECT * FROM view_getDashboardVolunteer WHERE loginstatus = '"+ActiveStatus+"'";
+                var response = dapperQuery.Qry<DashboardVolunteer>(cmd,_dbCon);
+                return Ok(response);
             }
-            var response = dapperQuery.Qry<DashboardVolunteer>(cmd, _dbCon);
-            return Ok(response);
         }
         catch (Exception e)
         {
