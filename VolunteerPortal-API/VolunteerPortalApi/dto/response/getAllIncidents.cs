@@ -20,6 +20,7 @@ namespace VolunteerPortalApi.Entities
         public int provinceID { get; set; }
         public string provinceName { get; set; }
         public int priortyTypeID { get; set; }
-        public string priortyTypeTitle { get; set; }       
+        public string priortyTypeTitle { get; set; }  
+        public string eDoc { get; set; }     
     }
 }
