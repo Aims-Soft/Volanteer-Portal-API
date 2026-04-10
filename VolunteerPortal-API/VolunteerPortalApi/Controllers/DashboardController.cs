@@ -67,7 +67,7 @@ public class DashboardController : ControllerBase
         try
         {
             cmd = "Select * from view_provinceCount";
-            var response = dapperQuery.Qry<ProcinceName>(cmd, _dbCon);
+            var response = dapperQuery.Qry<GetProvinceCount>(cmd, _dbCon);
             return Ok(response);
         }
         catch (Exception e)
