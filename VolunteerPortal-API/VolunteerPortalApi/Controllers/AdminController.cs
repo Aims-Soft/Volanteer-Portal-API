@@ -81,7 +81,7 @@ public class AdminController : ControllerBase
     {
         try
         {
-            cmd = "select * from view_getAppliedUser where incidentID="+incidentID+"";
+            cmd = "select * from view_getAppliedUser where incidentID="+IncidentID+"";
             var response = dapperQuery.Qry<ApplicantUser>(cmd, _dbCon);
             return Ok(response);
         }
