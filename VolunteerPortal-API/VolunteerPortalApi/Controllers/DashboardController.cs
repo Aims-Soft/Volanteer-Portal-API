@@ -126,8 +126,8 @@ public class DashboardController : ControllerBase
             return BadRequest(e.Message);
         }
     }
-    [HttpGet("getDashboardIncidents")]
-    public IActionResult getDashboardIncidents()
+    [HttpGet("getDashboardSlider")]
+    public IActionResult getDashboardSlider()
     {
         try
         {
