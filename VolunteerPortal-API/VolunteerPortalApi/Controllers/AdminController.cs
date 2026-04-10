@@ -76,6 +76,20 @@ public class AdminController : ControllerBase
     //         return BadRequest(e.Message);
     //     }
     // }
+    [HttpGet("getApplicantUser")]
+    public IActionResult getApplicantUser(int IncidentID)
+    {
+        try
+        {
+            cmd = "select * from view_getAppliedUser where incidentID="+incidentID+"";
+            var response = dapperQuery.Qry<ApplicantUser>(cmd, _dbCon);
+            return Ok(response);
+        }
+        catch (Exception e)
+        {
+            return BadRequest(e.Message);
+        }
+    }
     [HttpGet("getCompanyDetail")]
     public IActionResult getCompanyDetail()
     {
