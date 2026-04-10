@@ -578,7 +578,7 @@ namespace UMISModuleAPI.Controllers
             {
             
                 List<OTP> appMenuUserID = new List<OTP>();
-                cmd3 = "select TOP 1 otpID from OTP where isDeleted=1 ORDER BY otpID DESC";
+                cmd3 = "select TOP 1 otpID from OTP ORDER BY otpID DESC";
                 appMenuUserID = (List<OTP>)dapperQuery.Qry<OTP>(cmd3, _dbCon);
 
                 if(appMenuUserID.Count == 0)
