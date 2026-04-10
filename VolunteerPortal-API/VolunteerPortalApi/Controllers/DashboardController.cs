@@ -127,6 +127,20 @@ public class DashboardController : ControllerBase
         }
     }
     [HttpGet("getDashboardIncidents")]
+    public IActionResult getDashboardIncidents()
+    {
+        try
+        {
+            cmd = "select distinct * from view_getIncidents order by priortyTypeID Asc";
+            var response = dapperQuery.Qry<GetAllIncidents>(cmd, _dbCon);
+            return Ok(response);
+        }
+        catch (Exception e)
+        {
+            return BadRequest(e.Message);
+        }
+    }
+    [HttpGet("getDashboardIncidents")]
     public IActionResult getDashboardIncidents(int? ActiveStatus)
     {
         try

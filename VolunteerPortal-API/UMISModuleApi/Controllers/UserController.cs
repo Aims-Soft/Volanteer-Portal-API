@@ -652,7 +652,6 @@ namespace UMISModuleAPI.Controllers
                 return Ok(e.Message);
             }
         }
-
         [HttpPost("saveUserBranch")]
         public IActionResult saveUserBranch(UserBranchCreation model)
         {
