@@ -508,7 +508,7 @@ namespace UMISModuleAPI.Controllers
         {
             try
             {
-                cmd = "SELECT otpNo from OTP where otpNo = '" + OTP + "' ";
+                cmd = "SELECT otpNo from OTP where isDeleted=0 and otpNo = '" + OTP + "' ";
                 var appMenu = dapperQuery.Qry<OTP>(cmd, _dbCon);
                 if (appMenu == null || !appMenu.Any())
                 {
@@ -516,7 +516,14 @@ namespace UMISModuleAPI.Controllers
                 }
                 else
                 {
-                    return Ok(appMenu);    
+                    //return Ok(appMenu);    
+                    //update otp isdeleted=1 
+                    ///string updateOTP="Update OTP set isDeleted=1 where otpNo = '" + OTP + "' ";
+                     string updateOTP="Update OTP set isDeleted=1 where otpNo = '" + OTP + "' ";
+                    var appMenu1 = dapperQuery.Qry<OTP>(updateOTP, _dbCon);
+                    return Ok(appMenu);
+                    
+                    //return ok ("OTP Verified Successfully");
                 }
                 
             }
@@ -571,7 +578,7 @@ namespace UMISModuleAPI.Controllers
             {
             
                 List<OTP> appMenuUserID = new List<OTP>();
-                cmd3 = "select TOP 1 otpID from OTP ORDER BY otpID DESC";
+                cmd3 = "select TOP 1 otpID from OTP where isDeleted=1 ORDER BY otpID DESC";
                 appMenuUserID = (List<OTP>)dapperQuery.Qry<OTP>(cmd3, _dbCon);
 
                 if(appMenuUserID.Count == 0)
@@ -582,7 +589,7 @@ namespace UMISModuleAPI.Controllers
                     }
                     // cmd2 = "";
                     // rowAffected = dapperQuery.Qry<OTP>(cmd2, _dbCon);
-                    cmd2 = "insert into OTP (otpID,otpNo,timestamp) values (" + newOTPid + ",'" + randomNumber + "', getdate())";
+                    cmd2 = "insert into OTP (otpID,otpNo,timestamp,isDeleted) values (" + newOTPid + ",'" + randomNumber + "', getdate(),0)";
                     var appMenu = dapperQuery.Qry<OTP>(cmd2, _dbCon);
 
                     
